@@ -3,6 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import routes from './routes';
 import cors from 'cors';
 import AppError from '@shared/errors/AppError';
+import "@shared/typeorm";
 
 const app = express();
 const PORT = 3333;
