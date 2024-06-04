@@ -1,22 +1,3 @@
-import { DataSource } from 'typeorm';
+import { createConnection } from 'typeorm';
 
-const dataSource = new DataSource({
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: 'docker',
-  database: 'apivendas',
-  migrations: ['./src/shared/typeorm/migrations/*.ts'],
-});
-
-dataSource
-  .initialize()
-  .then(() => {
-    console.log('Data Source has been initialized!');
-  })
-  .catch(err => {
-    console.error('Error during Data Source initialization', err);
-  });
-
-export default dataSource;
+createConnection().then((e) => console.log(e)).catch((err) => console.log(err));
